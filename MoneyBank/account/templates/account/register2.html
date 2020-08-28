@@ -1,0 +1,11 @@
+{%extends 'account/base1.html'%}
+{% block content %}
+{%load crispy_forms_tags%}
+<form method="post" enctype="multipart/form-data">
+    <div class="col-lg-3">
+    {% csrf_token%}
+    {{profile_form | crispy}}
+    <button type="submit">SUBMIT</button>
+    </div>
+</form>
+{% endblock %}

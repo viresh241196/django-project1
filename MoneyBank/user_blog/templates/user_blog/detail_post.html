@@ -1,0 +1,19 @@
+{%extends 'user_blog/base2.html'%}
+{%block content%}
+{% if messages%}
+{% for message in messages%}
+    <h2><div class="alert alert-{{message.tags }}">
+        {{message}}</div></h2>
+{%endfor%}
+{%endif%}
+
+    <article class="media content-section">
+        <p><legend class="border-bottom mb-1">{{post.title}}</legend><br>
+            <img class="rounded-circle article-img" src="{{ user.profile.profile_image.url }}"><br>
+            by {{post.author.username}}<br>
+            <img src="{{post.image.url }}"><br>
+        on {{ post.date| date:"F d, Y" }}.<br>
+        {{post.content}}</p>
+    </article>
+
+{%endblock%}

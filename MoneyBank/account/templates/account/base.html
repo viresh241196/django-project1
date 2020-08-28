@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Money Bank</title>
+</head>
+<body bgcolor="grey">
+<h1 align="MIDDLE" ><a href="{% url 'home'%}">Money Bank</a></h1>
+{%if messages%}
+    {%for message in messages%}
+        {{message}}
+    {%endfor%}
+{%endif%}
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>

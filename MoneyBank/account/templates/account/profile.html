@@ -1,0 +1,19 @@
+{% extends 'account/base1.html'%}
+{%block content%}
+{%load crispy_forms_tags%}
+
+<h1>{{user.username}} Profile</h1>
+<h2>Account Number {{user.profile.account_number}}</h2>
+
+<img src="{{user.profile.profile_image.url}}"><br>
+<form method="post" enctype="multipart/form-data">
+    <div class="container">
+        {% csrf_token%}
+
+        <div class="col-lg-6">
+        <p >{{update_profile | crispy}}</p>
+        <button type="submit">submit</button>
+        </div>
+     </div>
+</form>
+{%endblock%}
