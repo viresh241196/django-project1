@@ -1,0 +1,13 @@
+{% extends 'account/base.html'%}
+{%load crispy_forms_tags%}
+{%block content%}
+<div class="container">
+    <form method="post">
+        <div class="col-lg-3">
+            {% csrf_token%}
+            {{transfer_form | crispy}}
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+{%endblock%}

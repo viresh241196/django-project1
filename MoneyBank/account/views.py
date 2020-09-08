@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from .form import UserRegistrationForm, ProfileRegistrationForm, ProfileUpdateForm, LoginForm, DepositForm, WithdrawForm
+from .form import UserRegistrationForm, ProfileRegistrationForm, ProfileUpdateForm, LoginForm, DepositForm, \
+    WithdrawForm, transferForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Profile, Passbook
@@ -8,10 +9,28 @@ import time
 
 
 def home(request):
-    return render(request, 'account/home.html')
+    if request.method == "POST":
+        name = request.POST['username']
+        password = request.POST['password']
+        user = auth.authenticate(username=name, password=password)
+        if user is not None:
+            auth.login(request, user)
+            return redirect('home')
+        else:
+            messages.info(request, 'invalid credentials')
+            return redirect('login')
+    else:
+        login_form = LoginForm()
+    return render(request, 'account/home.html', {'login_form': login_form})
+
+
+def contact(request):
+    return render(request, 'account/contact.html')
+
 
 def about(request):
     return render(request, 'account/about.html')
+
 
 def base1(request):
     return render(request, 'account/base1.html')
@@ -162,3 +181,37 @@ def withdraw(request):
     else:
         form = WithdrawForm()
         return render(request, 'account/withdraw.html', {'form': form})
+
+
+@login_required(login_url="login")
+def transfer(request):
+    if request.method == 'POST':
+        transfer_form = transferForm(request.POST)
+        if transfer_form.is_valid():
+            account_1 = transfer_form.cleaned_data.get('account_number_1')
+            account_2 = transfer_form.cleaned_data.get('account_number_2')
+            amount = transfer_form.cleaned_data.get('amount')
+            data_1 = Profile.objects.filter(account_number=account_1).first()
+            data_2 = Profile.objects.filter(account_number=account_2).first()
+            if data_1.name == request.user.profile.name and data_1.account_number == request.user.profile.account_number\
+                    and data_2.account_number == account_2:
+                new_savings_1 = data_1.savings - amount
+                new_savings_2 = data_2.savings + amount
+                pk_1 = data_1.user_id
+                pk_2 = data_2.user_id
+                Profile.objects.filter(user_id=pk_1).update(savings=new_savings_1)
+                Profile.objects.filter(user_id=pk_2).update(savings=new_savings_2)
+                data_sender_entry = Profile.objects.filter(account_number=account_1).first()
+                data_receiver_entry = Profile.objects.filter(account_number=account_2).first()
+                passbook_entry(data_sender_entry, withdraw=amount)
+                passbook_entry(data_receiver_entry, deposit=amount)
+                username_1 = data_1.name
+                username_2 = data_2.name
+                messages.success(request, f'{username_1}, {amount} amount is transfer form your account to {username_2} account.')
+                return redirect('home')
+            else:
+                messages.error(request, f'invalid input')
+                return redirect('transfer')
+    else:
+        transfer_form = transferForm()
+        return render(request, 'account/transfer.html', {'transfer_form': transfer_form})

@@ -51,3 +51,13 @@ class WithdrawForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['account_number', 'withdraw']
+
+
+class transferForm(forms.ModelForm):
+    account_number_1 = forms.IntegerField(label='form account number')
+    account_number_2 = forms.IntegerField(label='to account number')
+    amount = forms.IntegerField(label='amount to transfer')
+
+    class Meta:
+        model = Profile
+        fields = ['account_number_1', 'account_number_2','amount']

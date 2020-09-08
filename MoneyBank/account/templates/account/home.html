@@ -3,62 +3,89 @@
 {% block content %}
 
 
-<section class="blog-posts grid-system" xmlns="http://www.w3.org/1999/html">
-      <div class="col-lg-12" align="right">
-        <div class="sidebar-item categories">
-            <div class="sidebar-heading">
-              <h1>Categories</h1>
-            </div>
-            <div class="content">
-              <ul>
-                <li><a href="{%url 'passbook'%}">want to check your Passbook?</a></li>
-                <li><a href="{%url 'deposit'%}">- credit amount</a></li>
-                <li><a href="{%url 'withdraw'%}">- debit amount</a></li>
-              </ul>
-            </div>
+<!--<section class="blog-posts grid-system" xmlns="http://www.w3.org/1999/html">-->
+<!--    <div class="col-lg-12" >-->
+<!--        <div class="sidebar-item categories">-->
+<!--            <div class="">-->
+
+<div class="container">
+    <div class="row row-cols-2">
+        <div class="col-7 blog-main">
+            <h3 class="pb-4 mb-4 font-italic border-bottom">
+                News
+            </h3>
+
+            <div class="blog-post">
+                <h2 class="blog-post-title">Gold may see buying interest at lower levels</h2>
+                <p class="blog-post-meta">September 1, 2020</p>
+
+                <p>Gold may witness choppy trade as US dollar counters signs of recovery against Fed’s dovish stance
+                    however we expect to see buying interest in gold at lower levels amid persisting risks to global
+                    economy and hopes of continuing stimulus measures.</p>
+                <hr>
+
+            </div><!-- /.blog-post -->
+
+            <div class="blog-post">
+                <h2 class="blog-post-title">The broader markets smartly outperformed benchmarks</h2>
+                <p class="blog-post-meta">august 23, 2020</p>
+
+                <p>The market continued its winning streak for the third consecutive month in August majorly on the back
+                    of FII money. The rising hope for economic recovery and strong earnings in FY22, and progress on the
+                    vaccine front along with increasing recovery rate in COVID-19 cases boosted the sentiment.</p>
+                <blockquote>
+                    <p>The BSE Sensex climbed 2.72 percent in the month gone by, though gains were capped due to
+                        sell-off on the last day of the month amid reports of India-China border tensions. The monthly
+                        gains were lower than July and June when market posted 7.7 percent rally each.
+                </blockquote>
+                <blockquote>
+                    Auto (up 7 percent), Banks (9.65 percent), Capital Goods (7.9 percent) and Metal (up 12.88
+                    percent) were leading sectors in a rally. However, FMCG and IT were laggards.</p>
+                </blockquote>
+                <hr>
+            </div><!-- /.blog-post -->
+
+            <div class="blog-post">
+                <h2 class="blog-post-title">Rupee opens lower at 73.05 following increase in US dollar</h2>
+                <p class="blog-post-meta">August 14, 2020</p>
+
+                <p>The Indian rupee has opened lower at 73.05 against the US dollar on September 2, falling 19 paise
+                    following an increase in the greenback.</p>
+                <p>The currency closed at 72.86 a dollar in previous session, gaining a percent, which was the biggest
+                    single session gain since December 18, 2018.</p>
+                <p>But analysts feel any upside in dollar is short-term, in fact the dollar index may weaken further
+                    amid US political uncertainty.
+
+                    "US political uncertainty ahead of November's presidential election and concerns about US economic
+                    recovery are likely to further weaken the greenback," ICICI Direct said.
+
+                    Meanwhile, the equity market was marginally under pressure amid volatility. The Nifty50 was down 24
+                    points at 11,446.30 and the BSE Sensex fell 117.95 points to 38,782.85 at the time of writing this
+                    article.
+
+                    Foreign institutional investors were net buyers to the tune of Rs 486.09 crore on September 1,
+                    whereas DIIs net sold Rs 775.23 crore in same session.</p>
+            </div><!-- /.blog-post -->
+
+
         </div>
-      </div>
 
 
-    <section class="blog-posts grid-system">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8">
-            <div class="all-blog-posts">
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="blog-post">
-                    <div class="blog-thumb">
-                      <img src="{% static 'images/blog-thumb-01.jpg'%}" alt="">
-                    </div>
-                    <div class="down-content">
-                      <span>Lifestyle</span>
-                      <a href="post-details.html"><h4>Donec tincidunt leo</h4></a>
-                      <ul class="post-info">
-                        <li><a href="#">Admin</a></li>
-                        <li><a href="#">May 31, 2020</a></li>
-                        <li><a href="#">12 Comments</a></li>
-                      </ul>
-                      <p>Nullam nibh mi, tincidunt sed sapien ut, rutrum hendrerit velit. Integer auctor a mauris sit amet eleifend.</p>
-                      <div class="post-options">
-                        <div class="row">
-                          <div class="col-lg-12">
-                            <ul class="post-tags">
-                              <li><i class="fa fa-tags"></i></li>
-                              <li><a href="#">Best Templates</a>,</li>
-                              <li><a href="#">TemplateMo</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+        <div class="col col-5" align="right">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Categories</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">What you want to do</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a href="{%url 'passbook'%}">- check
+                            Passbook</a></li>
+                        <li class="list-group-item"><a href="{%url 'deposit'%}">- credit amount</a></li>
+                        <li class="list-group-item"><a href="{%url 'withdraw'%}">- debit amount</a></li>
+                        <li class="list-group-item"><a href="{%url 'transfer'%}">- transfer amount</a></li>
+                    </ul>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
-
-{% endblock %}
+    </div>
+</div>
+    {% endblock %}

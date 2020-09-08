@@ -1,18 +1,68 @@
-<!DOCTYPE html>
+{%load static%}
+{% load crispy_forms_tags%}
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Money Bank</title>
-</head>
-<body bgcolor="grey">
-<h1 align="MIDDLE" ><a href="{% url 'home'%}">Money Bank</a></h1>
-{%if messages%}
-    {%for message in messages%}
-        {{message}}
-    {%endfor%}
-{%endif%}
-    {% block content %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    {% endblock %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+<body>
+{% if messages%}
+{% for message in messages%}
+<h2>
+    <div class="alert alert-{{message.tags }}">
+        {{message}}
+    </div>
+</h2>
+{%endfor%}
+{%endif%}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="{%url 'home'%}">Money Bank</a>
+        <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link" href="{%url 'home'%}">Home <span class="sr-only">(current)</span></a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+{% block content %}
+
+{% endblock %}
+
+
+<div class="card text-center text-white bg-dark">
+    <div class="card-header">
+        MoneyBank PVT. LTD.
+    </div>
+    <div class="card-body">
+
+        <p class="card-text">Design by :
+            <h7 class="card-title">Viresh Rawool.</h7>
+        </p>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
 </body>
 </html>
+
