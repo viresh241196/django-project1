@@ -27,7 +27,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="{%url 'home'%}">Money Bank</a>
-        <div class="collapse navbar-collapse" id="navbarToggle">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav ml-auto">
                 <a class="nav-link" href="{%url 'home'%}">Home <span class="sr-only">(current)</span></a>
                 {% if user.is_authenticated %}
@@ -63,7 +67,6 @@
                                 </button>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <a class="nav-item nav-link" href="{%url 'register1'%}">Register</a>

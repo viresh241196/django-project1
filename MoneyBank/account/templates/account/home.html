@@ -10,7 +10,7 @@
 
 <div class="container">
     <div class="row row-cols-2">
-        <div class="col-7 blog-main">
+        <div class="col-md-7 col-hm-12 blog-main">
             <h3 class="pb-4 mb-4 font-italic border-bottom">
                 News
             </h3>
@@ -66,16 +66,14 @@
                     Foreign institutional investors were net buyers to the tune of Rs 486.09 crore on September 1,
                     whereas DIIs net sold Rs 775.23 crore in same session.</p>
             </div><!-- /.blog-post -->
-
-
         </div>
 
-
-        <div class="col col-5" align="right">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Categories</h5>
+        <div class="col-md-5" align="right">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Categories</h5>
                     <h6 class="card-subtitle mb-2 text-muted">What you want to do</h6>
+                  <div class="container">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><a href="{%url 'passbook'%}">- check
                             Passbook</a></li>
@@ -83,9 +81,11 @@
                         <li class="list-group-item"><a href="{%url 'withdraw'%}">- debit amount</a></li>
                         <li class="list-group-item"><a href="{%url 'transfer'%}">- transfer amount</a></li>
                     </ul>
-                </div>
+                  </div>
+              </div>
             </div>
         </div>
     </div>
 </div>
-    {% endblock %}
+
+{% endblock %}
