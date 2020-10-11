@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="438e6d7a-dee1-4bac-b04f-1f382d9d6559" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoneyBank/account/templates/account/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/MoneyBank/account/templates/account/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602409688703</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="header">
+      <created>1602409848816</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602409848816</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -106,10 +112,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="header" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="337" y="0" key="CommitChangelistDialog2" timestamp="1602409687193">
+    <state x="337" y="0" key="CommitChangelistDialog2" timestamp="1602409847331">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="337" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602409687193" />
+    <state x="337" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602409847331" />
     <state x="463" y="138" key="FileChooserDialogImpl" timestamp="1597648189426">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
