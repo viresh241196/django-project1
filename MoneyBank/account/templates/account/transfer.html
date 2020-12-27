@@ -1,12 +1,12 @@
-{% extends 'account/base.html'%}
+{% extends 'account/base1.html'%}
 {%load crispy_forms_tags%}
 {%block content%}
 <div class="container">
     <form method="post">
-        <div class="col-lg-3">
+        <div class="container my-5 col-lg-5">
             {% csrf_token%}
             {{transfer_form | crispy}}
-            <button type="submit">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
 </div>

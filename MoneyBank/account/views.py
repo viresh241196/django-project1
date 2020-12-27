@@ -27,7 +27,7 @@ def home(request):
 def contact(request):
     return render(request, 'account/contact.html')
 
-
+#
 def about(request):
     return render(request, 'account/about.html')
 
@@ -42,12 +42,10 @@ def register1(request):
         if register_form.is_valid():
             register_form.save()
             return redirect('register2')
-
     else:
         register_form = UserRegistrationForm()
-        data = Profile.objects.last()
-        print(data.account_number)
-
+        # data = Profile.objects.last()
+        # print(data.account_number)
     return render(request, 'account/register1.html', {'register_form': register_form})
 
 
@@ -69,7 +67,7 @@ def register2(request):
             return redirect('home')
     else:
         profile_form = ProfileRegistrationForm()
-        Profile.objects.last()
+        #Profile.objects.last()
     return render(request, 'account/register2.html', {'profile_form': profile_form})
 
 
@@ -83,7 +81,7 @@ def login(request):
             return redirect('home')
         else:
             messages.info(request, 'invalid credentials')
-            return redirect('login')
+            return redirect('home')
     else:
         login_form = LoginForm()
     return render(request, 'account/login.html', {'login_form': login_form})

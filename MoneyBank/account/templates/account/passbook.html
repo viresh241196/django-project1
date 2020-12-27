@@ -1,18 +1,34 @@
 {%extends 'account/base1.html'%}
 {% block content %}
 {%load crispy_forms_tags%}
+<div class="container my-4">
+    <h1>Hello {{name}}</h1>
+    <br>
+    <h4>Your Passbook entries</h4><br>
+</div>
+<div class="container">
+    <table class="table text-center">
+        <thead>
+            <tr>
 
-<h1>Hello {{name}}</h1>
-<br>
-<h2>Passbook entries</h2><br>
-{%for item in data%}
-            <div class="text-content">
+                <th scope="col">time</th>
+                <th scope="col">deposit</th>
+                <th scope="col">withdraw</th>
+                <th scope="col">savings</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for item in data%}
+            <tr>
+                <td>{{ item.time }}</td>
+                <td>{{ item.deposit }}</td>
+                <td>{{ item.withdraw }}</td>
+                <td>{{ item.savings }}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
 
-             <h3>time:{{ item.time }},
-             deposit:{{ item.deposit }},
-             withdraw:{{ item.withdraw }},
-             savings:{{ item.savings }}</h3>
-            </div>
-        {%endfor%}
 
 {% endblock %}
